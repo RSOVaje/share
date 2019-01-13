@@ -1,0 +1,3 @@
+si\fri\pictures\api\v1\ShareApplication.class
+META-INF\services\javax.ws.rs.core.Application
+si\fri\pictures\api\v1\resource\ShareResource.class

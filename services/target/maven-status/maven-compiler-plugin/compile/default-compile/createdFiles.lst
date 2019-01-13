@@ -1,0 +1,3 @@
+services\beans\ShareBean.class
+services\producers\PersistenceProducer.class
+services\configuration\AppProperties.class

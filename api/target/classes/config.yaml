@@ -1,0 +1,24 @@
+kumuluzee:
+  name: share
+  env:
+    name: dev
+  version: 1.0
+  server:
+    base-url: http://localhost:8083
+    http:
+      port: 8083
+  datasources:
+  - jndi-name: share
+    connection-url: jdbc:postgresql://192.168.99.100:5435/share
+    username: postgres
+    password: admin
+    max-pool-size: 20
+  config:
+    etcd:
+      hosts: http://192.168.99.100:2379
+  discovery:
+    etcd:
+      hosts: http://192.168.99.100:2379
+app-properties:
+  external-services:
+    enabled: true

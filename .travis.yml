@@ -1,0 +1,26 @@
+sudo: required
+
+services:
+- docker
+
+language: java
+dist: trusty
+
+jdk:
+- openjdk8
+
+cache:
+  directories:
+  - $HOME/.m2
+
+env:
+- DOCKER_IMAGE=rsovaje/share:0.1
+
+
+script:
+- mvn clean package -U
+- docker build -t "$DOCKER_IMAGE" .
+
+after_success:
+- docker login --username=rsovaje --password=rsovaje123
+- docker push "$DOCKER_IMAGE"
