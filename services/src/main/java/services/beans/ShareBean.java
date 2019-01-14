@@ -67,7 +67,7 @@ public class ShareBean {
         TypedQuery<Share> query = em.createNamedQuery("Share.getById", Share.class).setParameter("id", id);
         Share share = query.getSingleResult();
 
-        Picture picture = getPicture(share.getIdPicture());
+        Picture picture = shareBean.getPicture(share.getIdPicture());
         share.setPictures(picture);
 
         return share;
@@ -98,6 +98,7 @@ public class ShareBean {
 
     public Picture getPicture(Integer id) {
         if(appProperties.isExternalServicesEnabled() && pictureUrl.isPresent()) {
+            log.info(pictureUrl.get() + "/v1/picture/" + id);
             try {
                 return httpClient
                         .target(pictureUrl.get() + "/v1/picture/" + id)
