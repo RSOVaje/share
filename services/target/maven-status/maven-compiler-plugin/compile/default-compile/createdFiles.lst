@@ -1,3 +1,4 @@
 services\beans\ShareBean.class
+services\beans\ShareBean$1.class
 services\producers\PersistenceProducer.class
 services\configuration\AppProperties.class

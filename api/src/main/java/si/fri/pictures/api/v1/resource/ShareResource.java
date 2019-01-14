@@ -1,5 +1,6 @@
 package si.fri.pictures.api.v1.resource;
 
+import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import services.beans.ShareBean;
 import si.fri.pictures.models.entities.Share;
 
@@ -11,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 import java.util.List;
+import java.util.Optional;
 
 @RequestScoped
 @Path("/share")
@@ -23,6 +25,10 @@ public class ShareResource {
 
     @Context
     protected UriInfo uriInfo;
+
+    @Inject
+    @DiscoverService("picture")
+    private Optional<String> pictureUrl;
 
     @GET
     public Response getShare() {

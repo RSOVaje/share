@@ -1,6 +1,9 @@
 package si.fri.pictures.models.entities;
 
+import si.fri.pictures.models.dtos.Picture;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "share")
 @NamedQueries(value = {
@@ -21,6 +24,9 @@ public class Share {
     private Integer idSProfila;
 
     private Integer idPicture;
+
+    @Transient
+    private Picture pictures;
 
     public Integer getId() {
         return id;
@@ -52,5 +58,13 @@ public class Share {
 
     public void setIdPicture(Integer idPhoto) {
         this.idPicture = idPhoto;
+    }
+
+    public Picture getPictures() {
+        return pictures;
+    }
+
+    public void setPictures(Picture pictures) {
+        this.pictures = pictures;
     }
 }

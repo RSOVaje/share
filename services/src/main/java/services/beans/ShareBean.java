@@ -1,14 +1,24 @@
 package services.beans;
 
+import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import services.configuration.AppProperties;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.ws.rs.InternalServerErrorException;
+import javax.ws.rs.ProcessingException;
+import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Client;
+import javax.ws.rs.core.GenericType;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Logger;
+
+import si.fri.pictures.models.dtos.Picture;
 import si.fri.pictures.models.entities.Share;
 
 @ApplicationScoped
@@ -26,6 +36,10 @@ public class ShareBean {
     private ShareBean shareBean;
 
     private Client httpClient;
+
+    @Inject
+    @DiscoverService("picture")
+    private Optional<String> pictureUrl;
 
     public List<Share> getShare() {
 
@@ -51,8 +65,12 @@ public class ShareBean {
     public Share getShareById(Integer id) {
 
         TypedQuery<Share> query = em.createNamedQuery("Share.getById", Share.class).setParameter("id", id);
+        Share share = query.getSingleResult();
 
-        return query.getSingleResult();
+        Picture picture = getPicture(share.getIdPicture());
+        share.setPictures(picture);
+
+        return share;
 
     }
 
@@ -60,8 +78,37 @@ public class ShareBean {
 
         TypedQuery<Share> query = em.createNamedQuery("Share.getByIdProfile", Share.class).setParameter("idProfila", idProfila);
 
-        return query.getResultList();
+        List<Share> share = query.getResultList();
+        Iterator it = share.iterator();
 
+        List<Share> shareL = new ArrayList<>();
+        if(it.hasNext() == true) {
+            for (int i = 0; i < share.size(); i++) {
+                Share s = share.get(i);
+                Picture picture = getPicture(s.getIdPicture());
+                s.setPictures(picture);
+                shareL.add(s);
+            }
+            return shareL;
+        }
+
+        return null;
+
+    }
+
+    public Picture getPicture(Integer id) {
+        if(appProperties.isExternalServicesEnabled() && pictureUrl.isPresent()) {
+            try {
+                return httpClient
+                        .target(pictureUrl.get() + "/v1/picture/" + id)
+                        .request().get(new GenericType<Picture>() {
+                        });
+            } catch (WebApplicationException | ProcessingException e) {
+                log.severe(e.getMessage());
+                throw new InternalServerErrorException(e);
+            }
+        }
+        return null;
     }
 
     public Boolean deleteShare(Integer idProfila, Integer idSProfila) {
@@ -89,7 +136,21 @@ public class ShareBean {
 
         TypedQuery<Share> query = em.createNamedQuery("Share.getByIdSProfile", Share.class).setParameter("idSProfila", idSProfila);
 
-        return query.getResultList();
+        List<Share> share = query.getResultList();
+        Iterator it = share.iterator();
+
+        List<Share> shareL = new ArrayList<>();
+        if(it.hasNext() == true) {
+            for (int i = 0; i < share.size(); i++) {
+                Share s = share.get(i);
+                Picture picture = getPicture(s.getIdPicture());
+                s.setPictures(picture);
+                shareL.add(s);
+            }
+            return shareL;
+        }
+
+        return null;
 
     }
 
