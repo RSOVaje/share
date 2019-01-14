@@ -26,9 +26,6 @@ public class ShareResource {
     @Context
     protected UriInfo uriInfo;
 
-    @Inject
-    @DiscoverService("picture")
-    private Optional<String> pictureUrl;
 
     @GET
     public Response getShare() {
