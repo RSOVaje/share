@@ -14,7 +14,7 @@ cache:
   - $HOME/.m2
 
 env:
-- DOCKER_IMAGE=rsovaje/share:0.7
+- DOCKER_IMAGE=rsovaje/share:0.8
 
 
 script:

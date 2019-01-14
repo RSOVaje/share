@@ -67,8 +67,8 @@ public class ShareBean {
         TypedQuery<Share> query = em.createNamedQuery("Share.getById", Share.class).setParameter("id", id);
         Share share = query.getSingleResult();
 
-        //Picture picture = shareBean.getPicture(share.getIdPicture());
-        //share.setPictures(picture);
+        Picture picture = shareBean.getPicture(share.getIdPicture());
+        share.setPictures(picture);
 
         return share;
 
