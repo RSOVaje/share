@@ -67,8 +67,8 @@ public class ShareBean {
         TypedQuery<Share> query = em.createNamedQuery("Share.getById", Share.class).setParameter("id", id);
         Share share = query.getSingleResult();
 
-        Picture picture = shareBean.getPicture(share.getIdPicture());
-        share.setPictures(picture);
+        //Picture picture = shareBean.getPicture(share.getIdPicture());
+        //share.setPictures(picture);
 
         return share;
 
@@ -79,9 +79,9 @@ public class ShareBean {
         TypedQuery<Share> query = em.createNamedQuery("Share.getByIdProfile", Share.class).setParameter("idProfila", idProfila);
 
         List<Share> share = query.getResultList();
-        Iterator it = share.iterator();
+        //Iterator it = share.iterator();
 
-        List<Share> shareL = new ArrayList<>();
+        /*List<Share> shareL = new ArrayList<>();
         if(it.hasNext() == true) {
             for (int i = 0; i < share.size(); i++) {
                 Share s = share.get(i);
@@ -92,7 +92,8 @@ public class ShareBean {
             return shareL;
         }
 
-        return null;
+        return null;*/
+        return share;
 
     }
 
@@ -138,7 +139,7 @@ public class ShareBean {
         TypedQuery<Share> query = em.createNamedQuery("Share.getByIdSProfile", Share.class).setParameter("idSProfila", idSProfila);
 
         List<Share> share = query.getResultList();
-        Iterator it = share.iterator();
+        /*Iterator it = share.iterator();
 
         List<Share> shareL = new ArrayList<>();
         if(it.hasNext() == true) {
@@ -151,7 +152,8 @@ public class ShareBean {
             return shareL;
         }
 
-        return null;
+        return null;*/
+        return share;
 
     }
 
