@@ -97,7 +97,6 @@ public class ShareBean {
     }
 
     public Picture getPicture(Integer id) {
-        log.info(Integer.toString(id));
         if(appProperties.isExternalServicesEnabled() && pictureUrl.isPresent()) {
             try {
                 return httpClient

@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f2fd1524-a379-4433-93ea-2330b9496bcc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/main/java/si/fri/pictures/api/v1/resource/ShareResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/main/java/si/fri/pictures/api/v1/resource/ShareResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kubernetes/share-deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/kubernetes/share-deployment.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/src/main/java/services/beans/ShareBean.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/src/main/java/services/beans/ShareBean.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -88,10 +85,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/src/main/java/si/fri/pictures/api/v1/resource/ShareResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="475">
               <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -119,17 +116,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/src/main/java/si/fri/pictures/models/dtos/Picture.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="339">
               <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/services/src/main/java/services/beans/ShareBean.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+            <state relative-caret-position="325">
+              <caret line="108" column="13" lean-forward="true" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -141,7 +138,7 @@
         <entry file="file://$PROJECT_DIR$/models/src/main/resources/sql-scripts/init-share.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="65" selection-start-column="65" selection-end-column="65" />
+              <caret column="73" lean-forward="true" selection-start-column="71" selection-end-column="73" />
             </state>
           </provider>
         </entry>
@@ -186,8 +183,8 @@
         <option value="$PROJECT_DIR$/models/src/main/java/si/fri/pictures/models/dtos/Picture.java" />
         <option value="$PROJECT_DIR$/models/src/main/java/si/fri/pictures/models/entities/Share.java" />
         <option value="$PROJECT_DIR$/services/src/main/java/services/helper/Helper.java" />
-        <option value="$PROJECT_DIR$/services/src/main/java/services/beans/ShareBean.java" />
         <option value="$PROJECT_DIR$/api/src/main/java/si/fri/pictures/api/v1/resource/ShareResource.java" />
+        <option value="$PROJECT_DIR$/services/src/main/java/services/beans/ShareBean.java" />
       </list>
     </option>
   </component>
@@ -410,7 +407,7 @@
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547480848130" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547481930234" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../picture" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -452,12 +449,12 @@
       <updated>1547366684426</updated>
       <workItem from="1547366689652" duration="19919000" />
       <workItem from="1547452664874" duration="1180000" />
-      <workItem from="1547473476707" duration="6561000" />
+      <workItem from="1547473476707" duration="7641000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27660000" />
+    <option name="totallyTimeSpent" value="28740000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1616" height="834" extended-state="0" />
@@ -620,13 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/resources/sql-scripts/init-share.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="65" selection-start-column="65" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/src/main/java/si/fri/pictures/models/entities/Share.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -641,27 +631,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/src/main/java/si/fri/pictures/models/dtos/Picture.java">
+    <entry file="file://$PROJECT_DIR$/models/src/main/resources/sql-scripts/init-share.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+        <state>
+          <caret column="73" lean-forward="true" selection-start-column="71" selection-end-column="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/src/main/java/services/beans/ShareBean.java">
+    <entry file="file://$PROJECT_DIR$/api/src/main/java/si/fri/pictures/api/v1/resource/ShareResource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
+        <state relative-caret-position="475">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/src/main/java/si/fri/pictures/api/v1/resource/ShareResource.java">
+    <entry file="file://$PROJECT_DIR$/models/src/main/java/si/fri/pictures/models/dtos/Picture.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="339">
+          <caret line="42" column="5" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/src/main/java/services/beans/ShareBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="108" column="13" lean-forward="true" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
