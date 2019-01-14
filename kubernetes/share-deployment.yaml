@@ -13,7 +13,7 @@ spec:
         app: share
     spec:
       containers:
-      - image: rsovaje/share:0.1
+      - image: rsovaje/share:0.2
         name: share
         env:
         - name: KUMULUZEE_DISCOVERY_CLUSTER
@@ -50,4 +50,4 @@ spec:
     protocol: TCP
     targetPort: 8083
   selector:
-    app: picture
+    app: share
