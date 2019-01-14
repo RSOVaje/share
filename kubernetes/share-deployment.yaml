@@ -13,7 +13,7 @@ spec:
         app: share
     spec:
       containers:
-      - image: rsovaje/share:0.8
+      - image: rsovaje/share:0.9
         name: share
         env:
         - name: KUMULUZEE_DISCOVERY_CLUSTER

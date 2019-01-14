@@ -3,6 +3,7 @@ package services.beans;
 import com.kumuluz.ee.discovery.annotations.DiscoverService;
 import services.configuration.AppProperties;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -11,6 +12,7 @@ import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.ProcessingException;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.GenericType;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -40,6 +42,12 @@ public class ShareBean {
     @Inject
     @DiscoverService("picture")
     private Optional<String> pictureUrl;
+
+    @PostConstruct
+    private void init() {
+        httpClient = ClientBuilder.newClient();
+//        baseUrl = "http://localhost:8081"; // only for demonstration
+    }
 
     public List<Share> getShare() {
 
@@ -79,9 +87,9 @@ public class ShareBean {
         TypedQuery<Share> query = em.createNamedQuery("Share.getByIdProfile", Share.class).setParameter("idProfila", idProfila);
 
         List<Share> share = query.getResultList();
-        //Iterator it = share.iterator();
+        Iterator it = share.iterator();
 
-        /*List<Share> shareL = new ArrayList<>();
+        List<Share> shareL = new ArrayList<>();
         if(it.hasNext() == true) {
             for (int i = 0; i < share.size(); i++) {
                 Share s = share.get(i);
@@ -92,14 +100,12 @@ public class ShareBean {
             return shareL;
         }
 
-        return null;*/
-        return share;
+        return null;
 
     }
 
     public Picture getPicture(Integer id) {
         if(appProperties.isExternalServicesEnabled() && pictureUrl.isPresent()) {
-            log.info(pictureUrl.get() + "/v1/picture/" + id);
             try {
                 return httpClient
                         .target(pictureUrl.get() + "/v1/picture/" + id)
@@ -139,7 +145,7 @@ public class ShareBean {
         TypedQuery<Share> query = em.createNamedQuery("Share.getByIdSProfile", Share.class).setParameter("idSProfila", idSProfila);
 
         List<Share> share = query.getResultList();
-        /*Iterator it = share.iterator();
+        Iterator it = share.iterator();
 
         List<Share> shareL = new ArrayList<>();
         if(it.hasNext() == true) {
@@ -152,8 +158,7 @@ public class ShareBean {
             return shareL;
         }
 
-        return null;*/
-        return share;
+        return null;
 
     }
 
